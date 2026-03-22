@@ -1,0 +1,17 @@
+{
+  "backlog": [
+    {"title":"Paperclip-style Org Chart v2","owner":"Data","priority":"P2","due":"2026-03-20"},
+    {"title":"n8n YouTube→Outlook automation hardening","owner":"Geordi","priority":"P2","due":"2026-03-22"}
+  ],
+  "in_progress": [
+    {"title":"Dashboard live data wiring","owner":"Geordi","priority":"P1","due":"2026-03-14"},
+    {"title":"Shorts pattern extraction pack","owner":"Shorts","priority":"P1","due":"2026-03-15"}
+  ],
+  "waiting_approval": [
+    {"title":"OpenClaw update to 2026.3.x","owner":"Geordi","priority":"P1","due":"TBD"}
+  ],
+  "done": [
+    {"title":"Gateway watchdog every 5m","owner":"Geordi","priority":"P1","due":"done"},
+    {"title":"Backup retention 2 daily / 2 weekly","owner":"Geordi","priority":"P1","due":"done"}
+  ]
+}

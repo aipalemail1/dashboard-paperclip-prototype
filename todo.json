@@ -1,0 +1,14 @@
+{
+  "items": [
+    {
+      "id": "enable-hourly-refresh",
+      "text": "When at computer: run the launchctl block to enable hourly dashboard refresh + desktop shortcut.",
+      "done": false
+    },
+    {
+      "id": "verify-refresh-service",
+      "text": "Verify service is running: launchctl list | grep ai.openclaw.dashboard-refresh",
+      "done": false
+    }
+  ]
+}

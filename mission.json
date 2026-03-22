@@ -1,0 +1,19 @@
+{
+  "mission": "Build and scale a leadership media business with high trust, high output, and controlled AI spend.",
+  "goals": [
+    {
+      "title": "Goal A: Publish consistent leadership short-form content weekly",
+      "tasks": [
+        "Analyze 3 reference videos/week (Shorts)",
+        "Produce 5 publish-ready scripts/week (Shorts + Picard)"
+      ]
+    },
+    {
+      "title": "Goal B: Maintain reliable, low-downtime AI operations",
+      "tasks": [
+        "Daily 5AM ship brief + diagnostics (Geordi)",
+        "Backup + watchdog health checks (Geordi)"
+      ]
+    }
+  ]
+}

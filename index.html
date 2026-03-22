@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Command Deck — Paperclip Style Prototype</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Command Deck</h1>
+      <p class="sub">Local-first control plane • Mission-driven agents • Budget guarded</p>
+    </div>
+    <div class="pill ok">Ship Status: GREEN</div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Dashboard tabs">
+    <button class="tab active" data-tab="current" role="tab" aria-selected="true">Current View</button>
+    <button class="tab" data-tab="project" role="tab" aria-selected="false">Project Status</button>
+    <button class="tab" data-tab="mission" role="tab" aria-selected="false">Mission</button>
+  </nav>
+
+  <!-- TAB 1: Current View -->
+  <main id="tab-current" class="grid tabpane active" role="tabpanel">
+    <section class="card mission">
+      <h2>Mission</h2>
+      <p>Build and scale a leadership media business with high trust, high output, and controlled AI spend.</p>
+      <div class="kpis">
+        <div><span>Priority Completion</span><strong>82%</strong></div>
+        <div><span>Assets This Week</span><strong>6</strong></div>
+        <div><span>Critical Alerts</span><strong>0</strong></div>
+      </div>
+    </section>
+
+    <section class="card budget">
+      <h2>Budget Guardrails</h2>
+      <div class="metric">
+        <label>OAuth (5h window used)</label>
+        <div class="bar"><i style="width:9%"></i></div>
+        <small>9% used • 91% left</small>
+      </div>
+      <div class="metric">
+        <label>OAuth (day window used)</label>
+        <div class="bar"><i style="width:14%"></i></div>
+        <small>14% used • 86% left</small>
+      </div>
+      <div class="metric">
+        <label>Web Search Budget ($5 cap)</label>
+        <div class="bar"><i style="width:24%"></i></div>
+        <small>$1.20 used • $3.80 left</small>
+      </div>
+    </section>
+
+    <section class="card agents">
+      <h2>Org + Agent Roles</h2>
+      <ul>
+        <li><span>Data</span><em>Chief of Staff</em><b class="ok">Online</b></li>
+        <li><span>Geordi</span><em>Systems/Ops</em><b class="ok">Online</b></li>
+        <li><span>Worf</span><em>Security</em><b class="ok">Online</b></li>
+        <li><span>Picard</span><em>Strategy</em><b class="ok">Online</b></li>
+        <li><span>Shorts</span><em>Content Engine</em><b class="warn">Busy</b></li>
+      </ul>
+    </section>
+
+    <section class="card tasks" style="grid-column:span 8">
+      <h2>Execution Queue</h2>
+      <table>
+        <thead><tr><th>Task</th><th>Owner</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Daily Brief @ 5:00 AM</td><td>Geordi</td><td><span class="tag ok">Running</span></td></tr>
+          <tr><td>YouTube Shorts Pattern Pack</td><td>Shorts</td><td><span class="tag warn">In Progress</span></td></tr>
+          <tr><td>Backup Retention (2 daily / 2 weekly)</td><td>Geordi</td><td><span class="tag ok">Applied</span></td></tr>
+          <tr><td>Gateway Watchdog (5m)</td><td>Geordi</td><td><span class="tag ok">Active</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card todo" style="grid-column:span 4">
+      <h2>To‑Do (For Kevin)</h2>
+      <ul class="todo-list">
+        <li><label><input class="todo-check" type="checkbox" data-todo-id="enable-hourly-refresh"> <span>When at computer: run launchctl block to enable hourly dashboard refresh + desktop shortcut.</span></label></li>
+        <li><label><input class="todo-check" type="checkbox" data-todo-id="verify-refresh-service"> <span>Verify service is running: launchctl list | grep ai.openclaw.dashboard-refresh</span></label></li>
+      </ul>
+      <small>Checks are saved in your browser for this page.</small>
+    </section>
+
+    <section class="card timeline">
+      <h2>Audit Timeline</h2>
+      <ol>
+        <li><b>21:58</b> Watchdog check: gateway healthy</li>
+        <li><b>21:46</b> Backup retention policy updated</li>
+        <li><b>21:40</b> Daily brief moved to 5:00 AM</li>
+        <li><b>21:35</b> CPU pressure reduced after app cleanup</li>
+      </ol>
+    </section>
+
+    <section class="card preview">
+      <h2>What’s Next (Live Version)</h2>
+      <ul>
+        <li>Read real status from <code>openclaw status --deep</code></li>
+        <li>Read metrics from <code>metrics/daily-brief-metrics.csv</code></li>
+        <li>Add approval queue + failover controls</li>
+        <li>Remote view via Tailscale</li>
+      </ul>
+      <button id="demoBtn">Simulate Alert</button>
+      <p id="demoOut"></p>
+    </section>
+  </main>
+
+  <!-- TAB 2: Project Status -->
+  <main id="tab-project" class="grid tabpane" role="tabpanel" aria-hidden="true">
+    <section class="card" style="grid-column: span 12;">
+      <h2>Project Status Board</h2>
+      <div class="kanban">
+        <div class="lane">
+          <h3>Backlog</h3>
+          <div class="ticket"><b>Paperclip-style Org Chart v2</b><small>Owner: Data • P2</small></div>
+          <div class="ticket"><b>n8n YouTube→Outlook automation</b><small>Owner: Geordi • P2</small></div>
+        </div>
+        <div class="lane">
+          <h3>In Progress</h3>
+          <div class="ticket"><b>Dashboard live data wiring</b><small>Owner: Geordi • P1</small></div>
+          <div class="ticket"><b>Shorts pattern extraction pack</b><small>Owner: Shorts • P1</small></div>
+        </div>
+        <div class="lane">
+          <h3>Waiting Approval</h3>
+          <div class="ticket"><b>OpenClaw update to 2026.3.x</b><small>Owner: Geordi • P1</small></div>
+        </div>
+        <div class="lane">
+          <h3>Done</h3>
+          <div class="ticket"><b>Gateway watchdog every 5m</b><small>Owner: Geordi</small></div>
+          <div class="ticket"><b>Backups retention 2 daily / 2 weekly</b><small>Owner: Geordi</small></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- TAB 3: Mission -->
+  <main id="tab-mission" class="grid tabpane" role="tabpanel" aria-hidden="true">
+    <section class="card" style="grid-column: span 12;">
+      <h2>Mission Alignment</h2>
+      <div class="mission-tree">
+        <div class="node n1"><b>Mission:</b> Build a leadership-focused media business that creates high-trust impact.</div>
+        <div class="node n2"><b>Goal A:</b> Publish consistent short-form leadership content weekly.</div>
+        <div class="node n3"><b>Goal B:</b> Maintain reliable, low-downtime AI operations.</div>
+        <div class="node n4"><b>Task A1:</b> Analyze 3 reference videos/week (Shorts)</div>
+        <div class="node n5"><b>Task A2:</b> Produce 5 publish-ready scripts/week (Shorts + Picard)</div>
+        <div class="node n6"><b>Task B1:</b> Daily 5AM ship brief + diagnostics (Geordi)</div>
+        <div class="node n7"><b>Task B2:</b> Backup + watchdog health (Geordi)</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
