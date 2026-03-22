@@ -4,6 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Command Deck — Paperclip Style Prototype</title>
+  <script>
+    (function () {
+      const PASSWORD = "Abc123!!!";
+      const key = "dashboard_auth_ok_v1";
+
+      if (sessionStorage.getItem(key) === "1") return;
+
+      const entered = prompt("Enter dashboard password:");
+      if (entered === PASSWORD) {
+        sessionStorage.setItem(key, "1");
+      } else {
+        document.documentElement.innerHTML = "<h1>Access denied</h1>";
+        throw new Error("Unauthorized");
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
